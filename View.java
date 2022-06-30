@@ -33,7 +33,7 @@ class View extends JPanel
 	
 	public void paintComponent(Graphics g)
 	{
-		g.setColor(new Color(128, 255, 255));
+		g.setColor(Color.gray);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		// g.drawImage(this.turtle_image, model.turtle_x, model.turtle_y, null);
 		for(int i = 0; i < model.tubes.size(); i++)
@@ -42,5 +42,6 @@ class View extends JPanel
 			g.drawImage(tube_image, t.x, t.y, null);
 		}
 		g.drawImage(mario_images.get(4), 100, 400, null);
+		g.drawLine(0, 596, 2000, 596);
 	}
 }
