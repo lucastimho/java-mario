@@ -47,7 +47,13 @@ class Controller implements MouseListener, KeyListener
 	public void mouseReleased(MouseEvent e) {    }
 	public void mouseEntered(MouseEvent e) {    }
 	public void mouseExited(MouseEvent e) {    }
-	public void mouseClicked(MouseEvent e) {    }
+	public void mouseClicked(MouseEvent e) 
+	{
+		if (e.getY() < 100)
+		{
+			System.out.println("break here");
+		}
+	}
 
 	public void keyPressed(KeyEvent e)
 	{
