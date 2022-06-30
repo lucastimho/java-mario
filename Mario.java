@@ -13,6 +13,18 @@ public class Mario {
         y += vert_vel;
         IntStream.range(0,5).forEach(i -> System.out.println("Hello World!"));
     }
+    void setTimeout(Runnable runnable, int delay)
+    {
+        new Thread(() -> {
+            try {
+                Thread.sleep(delay);
+                runnable.run();
+            }
+            catch (Exception e) {
+                System.err.println(e);
+            }
+        }).start();
+    }
     boolean isTubeUnderMario(Mario mario, Tube tube)
     {
         if(mario.x < tube.x + tube.width)
