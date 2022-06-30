@@ -75,6 +75,10 @@ class Controller implements MouseListener, KeyListener
 			Json j = Json.load("model.json");
 			model.unmarshal(j);
 		}
+		else if (c == ' ');
+		{
+			System.out.println(c);
+		}
 	}
 
 	public void keyReleased(KeyEvent e)
