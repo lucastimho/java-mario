@@ -3,6 +3,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.IOException;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.io.File;
 import javax.swing.JButton;
@@ -10,25 +11,34 @@ import java.awt.Color;
 
 class View extends JPanel
 {
-	BufferedImage tube_image;
+	BufferedImage tube;
 	Model model;
-	ArrayList<BufferedImage> mario_images = new ArrayList<BufferedImage>();
+	BufferedImage[] marios;
 
 	View(Controller c, Model m)
 	{
 		model = m;
-	    try
+		tube = loadImage("tube.png");
+		marios = new BufferedImage[5];
+		marios[0] = loadImage("mario1.png");
+		marios[1] = loadImage("mario2.png");
+		marios[2] = loadImage("mario3.png");
+		marios[3] = loadImage("mario4.png");
+		marios[4] = loadImage("mario5.png");
+	}
+	static BufferedImage loadImage(String filename)
+	{
+		BufferedImage im = null;
+		try
 		{
-			this.tube_image = ImageIO.read(new File("tube.png"));
-			for (int i = 1; i < 6; i++) 
-			{
-				mario_images.add(ImageIO.read(new File("mario" + i + ".png")));
-			}
+			im = ImageIO.read(new File(filename));
 		}
-		catch(Exception e) {
+		catch(Exception e)
+		{
 			e.printStackTrace(System.err);
 			System.exit(1);
 		}
+		return im;
 	}
 	
 	public void paintComponent(Graphics g)
@@ -39,9 +49,9 @@ class View extends JPanel
 		for(int i = 0; i < model.tubes.size(); i++)
 		{
 			Tube t = model.tubes.get(i);
-			g.drawImage(tube_image, t.x, t.y, null);
+			g.drawImage(tube, t.x, t.y, null);
 		}
-		g.drawImage(mario_images.get(4), 100, 400, null);
+		g.drawImage(marios[4], 100, 400, null);
 		g.drawLine(0, 596, 2000, 596);
 	}
 }

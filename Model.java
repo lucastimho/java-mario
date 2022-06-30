@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 class Model {
-    
+        Mario mario;
         ArrayList<Tube> tubes;
         int turtle_x;
         int turtle_y;
