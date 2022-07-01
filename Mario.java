@@ -8,6 +8,9 @@ public class Mario {
     int height = 95;
     double vert_vel;
     int frame;
+    int prev_x;
+    int prev_y;
+    
     Mario()
     {
         x = 200;

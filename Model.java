@@ -2,11 +2,7 @@ import java.util.ArrayList;
 
 class Model {
         Mario mario;
-        ArrayList<Tube> tubes;
-        int turtle_x;
-        int turtle_y;
-        int dest_x;
-        int dest_y;
+        ArrayList<Tube> tubes;  
     
         Model()
         {
@@ -20,11 +16,11 @@ class Model {
             mario.update();
         }
     
-        public void setDestination(int x, int y)
-        {
-            this.dest_x = x;
-            this.dest_y = y;
-        }
+        // public void setDestination(int x, int y)
+        // {
+        //     this.dest_x = x;
+        //     this.dest_y = y;
+        // }
         public void addNewTube(int mouse_x, int mouse_y)
         {
             Tube t = new Tube(mouse_x, mouse_y);
