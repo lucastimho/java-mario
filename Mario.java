@@ -12,15 +12,15 @@ public class Mario {
     {
         x = 200;
         y= 400;
-        // vert_vel = 1.2;
+        vert_vel = 1.2;
     }
     void update()
     {
-        // vert_vel += 0.9;
-        // y += vert_vel;
+        vert_vel += 0.9;
+        y += vert_vel;
         if(y > 400)
         {
-            vert_vel = -18;
+            // vert_vel = -18;
             y = 400;
         }
         
@@ -51,5 +51,9 @@ public class Mario {
         if(mario.y > tube.y + tube.height) // assumes bigger is downward
             return false;
         return true;
+    }
+    void jump() 
+    {
+        vert_vel = -20.1;
     }
 }
