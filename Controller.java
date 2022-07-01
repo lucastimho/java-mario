@@ -31,7 +31,7 @@ class Controller implements MouseListener, KeyListener
 		for(int i = 0; i < model.tubes.size(); i++)
 		{
 			Tube t = model.tubes.get(i);
-			if(t.isThatClickInMe(e.getX(), e.getY()))
+			if(t.isThatClickInMe(e.getX() + model.mario.x - 200, e.getY()))
 			{
 				theTubeIClickedOn = t;
 				index = i;
@@ -39,7 +39,7 @@ class Controller implements MouseListener, KeyListener
 			}
 		}
 		if(theTubeIClickedOn == null)
-			model.addNewTube(e.getX(), e.getY());
+			model.addNewTube(e.getX() + model.mario.x - 200, e.getY());
 		else
 			model.removeTube(index);
 	}
