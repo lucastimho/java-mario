@@ -4,20 +4,20 @@ import java.util.stream.IntStream;
 public class Mario {
     int x;
     int y;
-    int width = 55;
-    int height = 90;
+    int width = 60;
+    int height = 95;
     double vert_vel;
     int frame;
-    Mario(int xx, int yy)
+    Mario()
     {
-        xx = x;
-        yy = y;
-        vert_vel = 1.2;
+        x = 200;
+        y= 400;
+        // vert_vel = 1.2;
     }
     void update()
     {
-        vert_vel += 0.9;
-        y += vert_vel;
+        // vert_vel += 0.9;
+        // y += vert_vel;
         if(y > 600)
         {
             vert_vel = -18;

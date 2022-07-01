@@ -11,7 +11,7 @@ class Model {
         Model()
         {
             tubes = new ArrayList<>();
-            mario = new Mario(200, 300);
+            mario = new Mario();
         }
         Model (Json obj)
         {}
