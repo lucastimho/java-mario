@@ -11,20 +11,13 @@ class Model {
         Model()
         {
             tubes = new ArrayList<>();
+            mario = new Mario(200, 300);
         }
         Model (Json obj)
         {}
         public void update()
         {
-            // Move the turtle
-            if(this.turtle_x < this.dest_x)
-                this.turtle_x += Math.min(4, dest_x - dest_y);
-            else if(this.turtle_x > this.dest_x)
-                this.turtle_x -= Math.min(3, turtle_x - dest_x);
-            if(this.turtle_y < this.dest_y)
-                this.turtle_y += Math.min(4, dest_y - turtle_y);
-            else if(this.turtle_y > this.dest_y)
-                this.turtle_y -= Math.min(4, turtle_y - dest_y);
+            mario.update();
         }
     
         public void setDestination(int x, int y)
@@ -65,10 +58,10 @@ class Tube {
     int width = 55;
     int height = 400;
 
-    Tube(int a, int b)
+    Tube(int xx, int yy)
     {
-      x = a;
-      y = b;
+      x = xx;
+      y = yy;
     }
     Tube (Json ob)
     {

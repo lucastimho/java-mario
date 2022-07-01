@@ -7,24 +7,31 @@ public class Mario {
     int width = 55;
     int height = 90;
     double vert_vel;
+    Mario(int xx, int yy)
+    {
+        xx = x;
+        yy = y;
+        vert_vel = 1.2;
+    }
     void update()
     {
-        vert_vel += 1.2;
+        vert_vel += 0.9;
         y += vert_vel;
-        IntStream.range(0,5).forEach(i -> System.out.println("Hello World!"));
+        if(y > 900)
+            vert_vel = -18;
     }
-    void setTimeout(Runnable runnable, int delay)
-    {
-        new Thread(() -> {
-            try {
-                Thread.sleep(delay);
-                runnable.run();
-            }
-            catch (Exception e) {
-                System.err.println(e);
-            }
-        }).start();
-    }
+    // void setTimeout(Runnable runnable, int delay)
+    // {
+    //     new Thread(() -> {
+    //         try {
+    //             Thread.sleep(delay);
+    //             runnable.run();
+    //         }
+    //         catch (Exception e) {
+    //             System.err.println(e);
+    //         }
+    //     }).start();
+    // }
     boolean isTubeUnderMario(Mario mario, Tube tube)
     {
         if(mario.x < tube.x + tube.width)

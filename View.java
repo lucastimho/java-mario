@@ -51,7 +51,7 @@ class View extends JPanel
 			Tube t = model.tubes.get(i);
 			g.drawImage(tube, t.x, t.y, null);
 		}
-		g.drawImage(marios[4], 100, 400, null);
-		g.drawLine(0, 596, 2000, 596);
+		g.drawImage(marios[4], model.mario.x, model.mario.y, null);
+		// g.drawLine(0, 596, 2000, 596);
 	}
 }
