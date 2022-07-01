@@ -45,13 +45,12 @@ class View extends JPanel
 	{
 		g.setColor(Color.gray);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
-		// g.drawImage(this.turtle_image, model.turtle_x, model.turtle_y, null);
 		for(int i = 0; i < model.tubes.size(); i++)
 		{
 			Tube t = model.tubes.get(i);
 			g.drawImage(tube, t.x, t.y, null);
 		}
-		g.drawImage(marios[4], model.mario.x, model.mario.y, null);
-		// g.drawLine(0, 596, 2000, 596);
+		g.drawImage(marios[model.mario.frame], model.mario.x, model.mario.y, null);
+		g.drawLine(0, 896, 2000, 896);
 	}
 }

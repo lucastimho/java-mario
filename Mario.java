@@ -7,6 +7,7 @@ public class Mario {
     int width = 55;
     int height = 90;
     double vert_vel;
+    int frame;
     Mario(int xx, int yy)
     {
         xx = x;
@@ -17,8 +18,11 @@ public class Mario {
     {
         vert_vel += 0.9;
         y += vert_vel;
-        if(y > 900)
+        if(y > 800)
             vert_vel = -18;
+        frame++;
+        if (frame > 4)
+          frame = 0;
     }
     // void setTimeout(Runnable runnable, int delay)
     // {
