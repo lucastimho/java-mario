@@ -18,8 +18,12 @@ public class Mario {
     {
         vert_vel += 0.9;
         y += vert_vel;
-        if(y > 800)
+        if(y > 600)
+        {
             vert_vel = -18;
+            y = 600;
+        }
+        
         frame++;
         if (frame > 4)
           frame = 0;
