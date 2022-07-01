@@ -52,6 +52,6 @@ class View extends JPanel
 			Tube t = model.tubes.get(i);
 			g.drawImage(tube, t.x - model.mario.x + 200, t.y - model.mario.y + 400, null);
 		}
-		g.drawImage(marios[model.mario.frame], model.mario.x - 60, model.mario.y - 95, null);
+		g.drawImage(marios[model.mario.frame], 200, model.mario.y - 95, null);
 	}
 }
