@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 class Model {
         Mario mario;
@@ -15,12 +16,11 @@ class Model {
         {
             mario.update();
         }
-    
-        // public void setDestination(int x, int y)
-        // {
-        //     this.dest_x = x;
-        //     this.dest_y = y;
-        // }
+        void getOutOfTheTube(Tube t)
+        {
+            mario.y = t.y - mario.height;   
+        }
+
         public void addNewTube(int mouse_x, int mouse_y)
         {
             Tube t = new Tube(mouse_x, mouse_y);
