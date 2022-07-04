@@ -94,7 +94,7 @@ class Controller implements MouseListener, KeyListener
 
 	void update()
 	{
-		model.mario.remember_state();
+		model.remember_state();
 		if(keyRight) model.mario.x += 4;
 		if(keyLeft) model.mario.x -= 4;
 		if(keyUp) model.mario.jump();

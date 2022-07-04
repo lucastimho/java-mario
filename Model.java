@@ -46,6 +46,10 @@ class Model {
             for(int i = 0; i < jsonList.size(); i++)
                 tubes.add(new Tube(jsonList.get(i)));
         }
+        void remember_state()
+        {
+            mario.remember_state();
+        }
     
 }
 class Tube {
