@@ -43,11 +43,11 @@ public class Mario {
     //         }
     //     }).start();
     // }
-    boolean isTubeUnderMario(Mario mario, Tube tube)
+    boolean doesCollide(Mario mario, Tube tube)
     {
-        if(mario.x < tube.x + tube.width)
+        if(mario.x + mario.width < tube.x)
             return false;
-        if(mario.x > tube.x)
+        if(mario.x > tube.x + tube.width)
             return false;
         if(mario.height + mario.y < tube.y ) // assumes bigger is downward
             return false;
