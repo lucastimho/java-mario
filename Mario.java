@@ -31,18 +31,6 @@ public class Mario {
         if (frame > 4)
           frame = 0;
     }
-    // void setTimeout(Runnable runnable, int delay)
-    // {
-    //     new Thread(() -> {
-    //         try {
-    //             Thread.sleep(delay);
-    //             runnable.run();
-    //         }
-    //         catch (Exception e) {
-    //             System.err.println(e);
-    //         }
-    //     }).start();
-    // }
     boolean doesCollide(Mario mario, Tube tube)
     {
         if(mario.x + mario.width < tube.x)
@@ -58,5 +46,10 @@ public class Mario {
     void jump() 
     {
         vert_vel = -20.1;
+    }
+    void remember_state()
+    {
+        prev_x = x;
+        prev_y = y;
     }
 }
