@@ -3,7 +3,6 @@ abstract class Sprite {
     int y;
     int width;
     int height;
-
     abstract void update();
     boolean isThatClickInMe(int mouse_x, int mouse_y)
     {
@@ -20,4 +19,12 @@ abstract class Sprite {
       else
             return false;
     }
+    Json marshal()
+    {
+        Json ob = Json.newObject();
+        ob.add("x", x);
+        ob.add("y", y);
+        return ob;
+    }
+    // abstract void drawThyself();
 }

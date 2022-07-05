@@ -1,9 +1,11 @@
 public class Tube extends Sprite {
     int x;
     int y;
+    Model model;
 
-    Tube(int xx, int yy)
+    Tube(int xx, int yy, Model m)
     {
+      model = m;
       x = xx;
       y = yy;
       width = 55;
@@ -14,12 +16,9 @@ public class Tube extends Sprite {
         x = (int)ob.getLong("x");
         y = (int)ob.getLong("y");
     }
-    Json marshal()
-    {
-        Json ob = Json.newObject();
-        ob.add("x", x);
-        ob.add("y", y);
-        return ob;
-    }
-    void update() {}
+        void update() {}
+    // void drawThyself(Graphics g, int scrollPos)
+    // {
+    //     int sp = model.mario.x;
+    // }
 }
