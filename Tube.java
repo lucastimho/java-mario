@@ -36,4 +36,5 @@ public class Tube extends Sprite {
         ob.add("y", y);
         return ob;
     }
+    void update() {}
 }
