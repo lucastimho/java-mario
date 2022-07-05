@@ -3,6 +3,8 @@ public class Goomba extends Sprite {
     {
         xx = x;
         yy = y;
+        width = 99;
+        height = 118;
     }
     void update() {}
 }
