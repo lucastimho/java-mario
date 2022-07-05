@@ -34,13 +34,13 @@ public class Mario {
     }
     boolean doesCollide(Mario mario, Tube tube)
     {
-        if(mario.x + mario.width < tube.x)
+        if(mario.x + mario.width <= tube.x)
             return false;
-        if(mario.x > tube.x + tube.width)
+        if(mario.x >= tube.x + tube.width)
             return false;
-        if(mario.y < tube.y ) // assumes bigger is downward
+        if(mario.y <= tube.y ) // assumes bigger is downward
             return false;
-        if(mario.y > tube.y + tube.height) // assumes bigger is downward
+        if(mario.y >= tube.y + tube.height) // assumes bigger is downward
             return false;
         return true;
     }
