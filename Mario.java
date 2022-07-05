@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.stream.IntStream;
 
-public class Mario {
+public class Mario extends Sprite {
     int x;
     int y;
     int width = 60;

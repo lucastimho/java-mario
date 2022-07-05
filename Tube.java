@@ -1,4 +1,4 @@
-public class Tube {
+public class Tube extends Sprite {
     int x;
     int y;
     int width = 55;
