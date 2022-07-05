@@ -3,7 +3,8 @@ import java.util.Iterator;
 
 class Model {
         Mario mario;
-        ArrayList<Tube> tubes;  
+        ArrayList<Tube> tubes;
+        Goomba goomba;
     
         Model()
         {
