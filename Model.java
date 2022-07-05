@@ -26,7 +26,9 @@ class Model {
         }
         void getOutOfTheTube(Tube t)
         {
-            if(Math.abs(mario.y - mario.prev_y) > 0)
+            if(mario.x >= t.x && mario.prev_x < t.x) mario.x = t.x - 1;
+            else if (mario.x - mario.width <= t.x + t.width && mario.prev_x - mario.width > t.x + t.width) mario.x = t.x + t.width + mario.width;
+            else if(Math.abs(mario.y - mario.prev_y) > 0)
             {
                 if(mario.y - mario.prev_y >= 0) mario.y = t.y;
                 else mario.y = t.y + t.height + mario.height;
