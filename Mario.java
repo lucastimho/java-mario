@@ -17,6 +17,7 @@ public class Mario {
         y= 400;
         vert_vel = 1.2;
     }
+
     void update()
     {
         vert_vel += 0.9;
@@ -37,7 +38,7 @@ public class Mario {
             return false;
         if(mario.x > tube.x + tube.width)
             return false;
-        if(mario.height + mario.y < tube.y ) // assumes bigger is downward
+        if(mario.y < tube.y ) // assumes bigger is downward
             return false;
         if(mario.y > tube.y + tube.height) // assumes bigger is downward
             return false;

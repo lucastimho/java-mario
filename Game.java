@@ -42,28 +42,8 @@ public class Game extends JFrame
 			}
 		}
 	}
-
-	// static void testmytubemarshallerer()
-	// {
-	// 	Tube t = new Tube(23, 77);
-	// 	Json j = t.marshal();
-	// 	j.save("testtube.json");
-	// }
-	// static void testthemodelmarshaler()
-	// {
-	// 	Model m = new Model();
-	// 	m.tubes.add(new Tube(31, 17));
-	// 	m.tubes.add(new Tube(1, 2));
-	// 	m.tubes.add(new Tube(100, 200));
-	// 	Json j = m.marshal();
-	// 	j.save("testmodel.json");
-	// }
-
 	public static void main(String[] args)
-	{
-		// testmytubemarshallerer();
-		// testthemodelmarshaler();
-		
+	{		
 		Game g = new Game();
 		g.run();
 	}

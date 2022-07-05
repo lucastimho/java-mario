@@ -15,10 +15,19 @@ class Model {
         public void update()
         {
             mario.update();
+            System.out.println(mario.y);
+            for(Iterator<Tube> it = tubes.iterator(); it.hasNext(); )
+            {
+                Tube t = it.next();
+                if(mario.doesCollide(mario, t))
+                {
+                    getOutOfTheTube(t);
+                }
+            }
         }
         void getOutOfTheTube(Tube t)
         {
-            mario.y = t.y - mario.height;   
+            mario.y = t.y;   
         }
 
         public void addNewTube(int mouse_x, int mouse_y)
