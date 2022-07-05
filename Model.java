@@ -5,6 +5,7 @@ class Model {
         Mario mario;
         ArrayList<Tube> tubes;
         ArrayList<Goomba> goomba;
+        ArrayList<Sprite> sprites;
     
         Model()
         {
@@ -16,13 +17,14 @@ class Model {
         public void update()
         {
             mario.update();
-            for(Iterator<Tube> it = tubes.iterator(); it.hasNext(); )
+            for(Iterator<Sprite> it = sprites.iterator(); it.hasNext(); )
             {
-                Tube t = it.next();
-                if(mario.doesCollide(mario, t))
-                {
-                    getOutOfTheTube(t);
-                }
+                Sprite s = it.next();
+                s.update();
+                // if(mario.doesCollide(mario, s))
+                // {
+                //     getOutOfTheTube(t);
+                // }
             }
         }
         void getOutOfTheTube(Tube t)
