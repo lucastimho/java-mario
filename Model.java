@@ -15,7 +15,6 @@ class Model {
         public void update()
         {
             mario.update();
-            System.out.println(mario.y);
             for(Iterator<Tube> it = tubes.iterator(); it.hasNext(); )
             {
                 Tube t = it.next();
@@ -27,7 +26,11 @@ class Model {
         }
         void getOutOfTheTube(Tube t)
         {
-            mario.y = t.y;   
+            if(Math.abs(mario.y - mario.prev_y) > 0)
+            {
+                if(mario.y - mario.prev_y >= 0) mario.y = t.y;
+                else mario.y = t.y + t.height + mario.height;
+            }  
         }
 
         public void addNewTube(int mouse_x, int mouse_y)
