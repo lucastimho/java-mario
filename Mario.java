@@ -1,8 +1,8 @@
 public class Mario extends Sprite {
-    int x;
-    int y;
-    int width = 60;
-    int height = 95;
+    // int x;
+    // int y;
+    // int width = 60;
+    // int height = 95;
     double vert_vel;
     int frame;
     int prev_x;
@@ -13,6 +13,8 @@ public class Mario extends Sprite {
     {
         x = 200;
         y= 400;
+        width = 60;
+        height = 95;
         vert_vel = 1.2;
     }
 
@@ -32,7 +34,7 @@ public class Mario extends Sprite {
           frame = 0;
         offGrounCount++;
     }
-    boolean doesCollide(Mario mario, Tube tube)
+    boolean doesCollide(Mario mario, Sprite tube)
     {
         if(mario.x + mario.width <= tube.x)
             return false;

@@ -28,11 +28,11 @@ class Controller implements MouseListener, KeyListener
 
 	public void mousePressed(MouseEvent e)
 	{
-		Tube theTubeIClickedOn = null;
+		Sprite theTubeIClickedOn = (Tube) null;
 		int index = 0;
-		for(int i = 0; i < model.tubes.size(); i++)
+		for(int i = 0; i < model.sprites.size(); i++)
 		{
-			Tube t = model.tubes.get(i);
+			Sprite t = (Tube) model.sprites.get(i);
 			if(t.isThatClickInMe(e.getX() + model.mario.x - 200, e.getY()))
 			{
 				theTubeIClickedOn = t;

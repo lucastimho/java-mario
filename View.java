@@ -49,9 +49,9 @@ class View extends JPanel
 			g.fillRect(0, 0, getWidth(), getHeight());
 			g.setColor(Color.gray);
 			g.drawLine(0, 400, 1000, 400);
-			for(int i = 0; i < model.tubes.size(); i++)
+			for(int i = 0; i < model.sprites.size(); i++)
 			{
-				Tube t = model.tubes.get(i);
+				Sprite t = (Tube) model.sprites.get(i);
 				g.drawImage(tube, t.x - model.mario.x + 200, t.y, null);
 			}
 			g.drawImage(marios[model.mario.frame], 200, model.mario.y - 95, null);
