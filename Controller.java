@@ -14,6 +14,7 @@ class Controller implements MouseListener, KeyListener
 	boolean keyUp;
 	boolean keyDown;
 	boolean keySpace;
+	int queuedSpaces;
 
 	Controller(Model m)
 	{
@@ -27,14 +28,14 @@ class Controller implements MouseListener, KeyListener
 
 	public void mousePressed(MouseEvent e)
 	{
-		Sprite theTubeIClickedOn = null;
+		Tube theTubeIClickedOn = null;
 		int index = 0;
-		for(int i = 0; i < model.sprites.size(); i++)
+		for(int i = 0; i < model.tubes.size(); i++)
 		{
-			Sprite s = model.sprites.get(i);
-			if(s.isThatClickInMe(e.getX() + model.mario.x - 200, e.getY()))
+			Tube t = model.tubes.get(i);
+			if(t.isThatClickInMe(e.getX() + model.mario.x - 200, e.getY()))
 			{
-				theTubeIClickedOn = s;
+				theTubeIClickedOn = t;
 				index = i;
 				
 			}
@@ -63,7 +64,7 @@ class Controller implements MouseListener, KeyListener
 			case KeyEvent.VK_RIGHT: keyRight = true; break;
 			case KeyEvent.VK_LEFT: keyLeft = true; break;
 			case KeyEvent.VK_UP: keyUp = true; break;
-			case KeyEvent.VK_DOWN: keySpace = true; break;
+			case KeyEvent.VK_DOWN: keySpace = true; queuedSpaces++; break;
 		}
 		char c = e.getKeyChar();
 		if(c == 's')
@@ -98,6 +99,7 @@ class Controller implements MouseListener, KeyListener
 		model.remember_state();
 		if(keyRight) model.mario.x += 4;
 		if(keyLeft) model.mario.x -= 4;
-		if(keySpace) model.mario.jump();
+		if((keySpace || queuedSpaces > 0) && model.mario.offGrounCount < 5) model.mario.jump();
+		queuedSpaces = 0;
 	}
 }
