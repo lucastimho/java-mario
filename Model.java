@@ -19,14 +19,17 @@ class Model {
     public void update()
     {
         mario.update();
+        goombas.update();
         for(Iterator<Sprite> it = sprites.iterator(); it.hasNext(); )
         {
             Sprite t = it.next(); //Sprite was previously Tube
             t.update();
-            if(mario.doesCollide(mario, t))
+            if(mario.doesCollide(t))
             {
                 getOutOfTheTube(t);
             }
+            if(goombas.doesCollide(t))
+                goombas.horiz_vel *= -1;
         }
     }
     void getOutOfTheTube(Sprite t) //Sprite was previously Tube

@@ -57,7 +57,7 @@ class View extends JPanel
 				g.drawImage(tube, t.x - model.mario.x + 200, t.y, null);
 			}
 			g.drawImage(marios[model.mario.frame], 200, model.mario.y - 95, null);
-			g.drawImage(goomba, model.mario.x + 100, model.mario.y, null);
+			g.drawImage(goomba, model.goombas.x, 400 - model.goombas.height, null);
 		}
 		catch(Exception e)
 		{

@@ -30,15 +30,15 @@ public class Mario extends Sprite {
           frame = 0;
         offGrounCount++;
     }
-    boolean doesCollide(Mario mario, Sprite tube) //Sprite was previously Tube
+    boolean doesCollide(Sprite tube) //Sprite was previously Tube
     {
-        if(mario.x + mario.width <= tube.x)
+        if(x + width <= tube.x)
             return false;
-        if(mario.x >= tube.x + tube.width)
+        if(x >= tube.x + tube.width)
             return false;
-        if(mario.y <= tube.y ) // assumes bigger is downward
+        if(y <= tube.y ) // assumes bigger is downward
             return false;
-        if(mario.y >= tube.y + tube.height) // assumes bigger is downward
+        if(y >= tube.y + tube.height) // assumes bigger is downward
             return false;
         return true;
     }
