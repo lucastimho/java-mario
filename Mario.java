@@ -49,7 +49,7 @@ public class Mario extends Sprite {
     }
     void jump() 
     {
-        vert_vel = -20.1;
+        vert_vel -= 13.1;
     }
     void remember_state()
     {

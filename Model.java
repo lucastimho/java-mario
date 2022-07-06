@@ -36,6 +36,7 @@ class Model {
             {
                 mario.y = t.y;
                 offGrounCount = 0;
+                mario.vert_vel = 0;
             }
             else if (mario.y - mario.height <= t.y + t.height && mario.prev_y - mario.height >= t.y + t.height) 
             {
