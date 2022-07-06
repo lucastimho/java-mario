@@ -6,6 +6,7 @@ class Model {
         ArrayList<Tube> tubes;
         ArrayList<Goomba> goomba;
         ArrayList<Sprite> sprites;
+        int offGrounCount;
     
         Model()
         {
@@ -31,8 +32,15 @@ class Model {
         {
             if(mario.x + mario.width >= t.x && mario.prev_x + mario.width <= t.x) mario.x = t.x - mario.width;
             else if (mario.x <= t.x + t.width && mario.prev_x >= t.x + t.width) mario.x = t.x + t.width;
-            else if(mario.y >= t.y && mario.prev_y <= t.y) mario.y = t.y;
-            else if (mario.y - mario.height <= t.y + t.height && mario.prev_y - mario.height >+ t.y + t.height) mario.y = t.y + t.height + mario.height;
+            else if(mario.y >= t.y && mario.prev_y <= t.y) 
+            {
+                mario.y = t.y;
+                offGrounCount = 0;
+            }
+            else if (mario.y - mario.height <= t.y + t.height && mario.prev_y - mario.height >= t.y + t.height) 
+            {
+                mario.y = t.y + t.height + mario.height;
+            }
             else System.out.println("error");
         }  
 
