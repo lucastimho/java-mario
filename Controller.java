@@ -32,7 +32,7 @@ class Controller implements MouseListener, KeyListener
 		int index = 0;
 		for(int i = 0; i < model.sprites.size(); i++)
 		{
-			Sprite t = (Tube) model.sprites.get(i);
+			Sprite t = (Tube) model.sprites.get(i); //Sprite was previously Tube
 			if(t.isThatClickInMe(e.getX() + model.mario.x - 200, e.getY()))
 			{
 				theTubeIClickedOn = t;

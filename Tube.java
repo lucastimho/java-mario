@@ -1,8 +1,4 @@
 public class Tube extends Sprite {
-    // int x;
-    // int y;
-    Model model;
-
     Tube(int xx, int yy)
     {
       x = xx;
