@@ -3,9 +3,8 @@ public class Tube extends Sprite {
     int y;
     Model model;
 
-    Tube(int xx, int yy, Model m)
+    Tube(int xx, int yy)
     {
-      model = m;
       x = xx;
       y = yy;
       width = 55;

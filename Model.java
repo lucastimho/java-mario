@@ -3,7 +3,7 @@ import java.util.Iterator;
 
 class Model {
         Mario mario;
-        // ArrayList<Tube> tubes;
+        Tube tube;
         ArrayList<Goomba> goomba;
         ArrayList<Sprite> sprites;
     
@@ -21,25 +21,25 @@ class Model {
             {
                 Sprite s = it.next();
                 s.update();
-                // if(mario.doesCollide(mario, s))
-                // {
-                //     getOutOfTheTube(t);
-                // }
+                if(mario.doesCollide(mario, s))
+                {
+                    getOutOfTheTube(s);
+                }
             }
         }
-        void getOutOfTheTube(Tube t)
+        void getOutOfTheTube(Sprite s)
         {
-            if(mario.x + mario.width >= t.x && mario.prev_x + mario.width <= t.x) mario.x = t.x - mario.width;
-            else if (mario.x <= t.x + t.width && mario.prev_x >= t.x + t.width) mario.x = t.x + t.width;
-            else if(mario.y >= t.y && mario.prev_y <= t.y) mario.y = t.y;
-            else if (mario.y - mario.height <= t.y + t.height && mario.prev_y - mario.height >+ t.y + t.height) mario.y = t.y + t.height + mario.height;
+            if(mario.x + mario.width >= s.x && mario.prev_x + mario.width <= s.x) mario.x = s.x - mario.width;
+            else if (mario.x <= s.x + s.width && mario.prev_x >= s.x + s.width) mario.x = s.x + s.width;
+            else if(mario.y >= s.y && mario.prev_y <= s.y) mario.y = s.y;
+            else if (mario.y - mario.height <= s.y + s.height && mario.prev_y - mario.height >+ s.y + s.height) mario.y = s.y + s.height + mario.height;
             else System.out.println("error");
         }  
 
         public void addNewTube(int mouse_x, int mouse_y)
         {
-            Sprite s = new Sprite(mouse_x, mouse_y);
-            sprites.add(s);
+            Tube t = new Tube(mouse_x, mouse_y);
+            sprites.add(t);
         }
         public void removeTube(int index)
         {
