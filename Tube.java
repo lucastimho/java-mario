@@ -16,8 +16,5 @@ public class Tube extends Sprite {
         y = (int)ob.getLong("y");
     }
         void update() {}
-    // void drawThyself(Graphics g, int scrollPos)
-    // {
-    //     int sp = model.mario.x;
-    // }
+    
 }

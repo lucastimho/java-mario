@@ -26,5 +26,5 @@ abstract class Sprite {
         ob.add("y", y);
         return ob;
     }
-    // abstract void drawThyself();
+    // abstract void draw();
 }

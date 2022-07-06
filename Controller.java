@@ -13,6 +13,7 @@ class Controller implements MouseListener, KeyListener
 	boolean keyRight;
 	boolean keyUp;
 	boolean keyDown;
+	boolean keySpace;
 
 	Controller(Model m)
 	{
@@ -62,7 +63,7 @@ class Controller implements MouseListener, KeyListener
 			case KeyEvent.VK_RIGHT: keyRight = true; break;
 			case KeyEvent.VK_LEFT: keyLeft = true; break;
 			case KeyEvent.VK_UP: keyUp = true; break;
-			case KeyEvent.VK_DOWN: keyDown = true; break;
+			case KeyEvent.VK_DOWN: keySpace = true; break;
 		}
 		char c = e.getKeyChar();
 		if(c == 's')
@@ -83,7 +84,7 @@ class Controller implements MouseListener, KeyListener
 		{
 			case KeyEvent.VK_RIGHT: keyRight = false; break;
 			case KeyEvent.VK_LEFT: keyLeft = false; break;
-			case KeyEvent.VK_UP: keyUp = false; break;
+			case KeyEvent.VK_SPACE: keySpace = false; break;
 			case KeyEvent.VK_DOWN: keyDown = false; break;
 		}
 	}
@@ -97,6 +98,6 @@ class Controller implements MouseListener, KeyListener
 		model.remember_state();
 		if(keyRight) model.mario.x += 4;
 		if(keyLeft) model.mario.x -= 4;
-		if(keyUp) model.mario.jump();
+		if(keySpace) model.mario.jump();
 	}
 }

@@ -10,6 +10,7 @@ public class Mario extends Sprite {
     int frame;
     int prev_x;
     int prev_y;
+    int offGrounCount;
     
     Mario()
     {
@@ -26,11 +27,13 @@ public class Mario extends Sprite {
         {
             // vert_vel = -18;
             y = 400;
+            offGrounCount = 0;
         }
         
         frame++;
         if (frame > 4)
           frame = 0;
+        offGrounCount++;
     }
     boolean doesCollide(Mario mario, Sprite sprite)
     {
