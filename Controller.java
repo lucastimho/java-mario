@@ -36,8 +36,7 @@ class Controller implements MouseListener, KeyListener
 			if(t.isThatClickInMe(e.getX() + model.mario.x - 200, e.getY()))
 			{
 				theTubeIClickedOn = t;
-				index = i;
-				
+				index = i;				
 			}
 		}
 		if(theTubeIClickedOn == null)
