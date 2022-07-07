@@ -5,7 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
-class Controller implements MouseListener, KeyListener
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
+class Controller implements MouseListener, KeyListener, SwingConstants
 {
 	Model model;
 	View view;
@@ -29,21 +32,24 @@ class Controller implements MouseListener, KeyListener
 
 	public void mousePressed(MouseEvent e)
 	{
-		Sprite theTubeIClickedOn = (Tube) null;
-		int index = 0;
-		for(int i = 0; i < model.sprites.size(); i++)
+		if (e.getButton() == 1)
 		{
-			Sprite t = (Tube) model.sprites.get(i); //Sprite was previously Tube
-			if(t.isThatClickInMe(e.getX() + model.mario.x - 200, e.getY()))
+			Sprite theTubeIClickedOn = (Tube) null;
+			int index = 0;
+			for(int i = 0; i < model.sprites.size(); i++)
 			{
-				theTubeIClickedOn = t;
-				index = i;				
+				Sprite t = (Tube) model.sprites.get(i); //Sprite was previously Tube
+				if(t.isThatClickInMe(e.getX() + model.mario.x - 200, e.getY()))
+				{
+					theTubeIClickedOn = t;
+					index = i;				
+				}
 			}
+			if(theTubeIClickedOn == null)
+				model.addNewTube(e.getX() + model.mario.x - 200, e.getY());
+			else
+				model.removeTube(index);
 		}
-		if(theTubeIClickedOn == null)
-			model.addNewTube(e.getX() + model.mario.x - 200, e.getY());
-		else
-			model.removeTube(index);
 	}
 
 	public void mouseReleased(MouseEvent e) {    }
