@@ -36,9 +36,9 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 		{
 			Sprite theTubeIClickedOn = (Tube) null;
 			int index = 0;
-			for(int i = 0; i < model.sprites.size(); i++)
+			for(int i = 0; i < model.tubeSprites.size(); i++)
 			{
-				Sprite t = (Tube) model.sprites.get(i); //Sprite was previously Tube
+				Sprite t = (Tube) model.tubeSprites.get(i); //Sprite was previously Tube
 				if(t.isThatClickInMe(e.getX() + model.mario.x - 200, e.getY()))
 				{
 					theTubeIClickedOn = t;

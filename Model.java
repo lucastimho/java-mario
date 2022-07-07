@@ -4,13 +4,13 @@ import java.util.Iterator;
 class Model {
     Mario mario;
     Goomba goombas;
-    ArrayList<Sprite> sprites;
+    ArrayList<Sprite> tubeSprites;
     Fireball fireball;
     int offGrounCount;
 
     Model()
     {
-        sprites = new ArrayList<>();
+        tubeSprites = new ArrayList<>();
         mario = new Mario();
         goombas = new Goomba(350, 700);
         fireball = new Fireball();
@@ -22,7 +22,7 @@ class Model {
         mario.update();
         goombas.update();
         fireball.update();
-        for(Iterator<Sprite> it = sprites.iterator(); it.hasNext(); )
+        for(Iterator<Sprite> it = tubeSprites.iterator(); it.hasNext(); )
         {
             Sprite t = it.next(); //Sprite was previously Tube
             t.update();
@@ -50,31 +50,30 @@ class Model {
         }
         else System.out.println("error");
     }  
-
     public void addNewTube(int mouse_x, int mouse_y)
     {
         Sprite t = new Tube(mouse_x, mouse_y);
-        sprites.add(t);
+        tubeSprites.add(t);
     }
     public void removeTube(int index)
     {
-        sprites.remove(index);
+        tubeSprites.remove(index);
     }
     Json marshal()
     {
         Json ob = Json.newObject();
         Json jsonTubes = Json.newList();
         ob.add("tubes", jsonTubes);
-        for(int i = 0; i < sprites.size(); i++)
-            jsonTubes.add(sprites.get(i).marshal());
+        for(int i = 0; i < tubeSprites.size(); i++)
+            jsonTubes.add(tubeSprites.get(i).marshal());
         return ob;
     }
     void unmarshal(Json ob)
     {
-        sprites = new ArrayList<Sprite>();
+        tubeSprites = new ArrayList<Sprite>();
         Json jsonList = ob.get("tubes");
         for(int i = 0; i < jsonList.size(); i++)
-            sprites.add(new Tube(jsonList.get(i)));
+            tubeSprites.add(new Tube(jsonList.get(i)));
     }
     void remember_state()
     {
