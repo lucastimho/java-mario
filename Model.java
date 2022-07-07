@@ -3,7 +3,6 @@ import java.util.Iterator;
 
 class Model {
     Mario mario;
-    Tube tubes;
     Goomba goombas;
     ArrayList<Sprite> sprites;
     Fireball fireball;
@@ -54,7 +53,7 @@ class Model {
 
     public void addNewTube(int mouse_x, int mouse_y)
     {
-        Tube t = new Tube(mouse_x, mouse_y);
+        Sprite t = new Tube(mouse_x, mouse_y);
         sprites.add(t);
     }
     public void removeTube(int index)

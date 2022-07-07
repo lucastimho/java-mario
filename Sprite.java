@@ -3,6 +3,7 @@ abstract class Sprite {
     int y;
     int width;
     int height;
+    
     abstract void update();
     Json marshal()
     {
