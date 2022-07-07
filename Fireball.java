@@ -1,6 +1,7 @@
 public class Fireball extends Sprite {
     double horiz_vel;
     double vert_vel;
+    boolean shoot= false;
     Fireball()
     {
         width = 47;
@@ -8,5 +9,9 @@ public class Fireball extends Sprite {
         horiz_vel = 10.1;
         vert_vel = 5.7;
     }
-    void update(){};
+    void update()
+    {
+        x += horiz_vel;
+        y += vert_vel;
+    };
 }

@@ -13,6 +13,7 @@ class View extends JPanel
 {
 	BufferedImage tube;
 	BufferedImage goomba;
+	BufferedImage fireball;
 	Model model;
 	BufferedImage[] marios;
 
@@ -21,6 +22,7 @@ class View extends JPanel
 		model = m;
 		tube = loadImage("tube.png");
 		goomba = loadImage("gumba.png");
+		fireball = loadImage("fireball.png");
 		marios = new BufferedImage[5];
 		marios[0] = loadImage("mario1.png");
 		marios[1] = loadImage("mario2.png");
@@ -42,6 +44,10 @@ class View extends JPanel
 		}
 		return im;
 	}
+	public void shootFireball(Graphics g)
+	{
+		
+	}
 	
 	public void paintComponent(Graphics g)
 	{
@@ -58,6 +64,7 @@ class View extends JPanel
 			}
 			g.drawImage(marios[model.mario.frame], 200, model.mario.y - 95, null);
 			g.drawImage(goomba, model.goombas.x, 400 - model.goombas.height, null);
+			if (model.fireball.shoot) g.drawImage(fireball, model.mario.x + model.mario.width, model.mario.y - (model.mario.height / 2), null);
 		}
 		catch(Exception e)
 		{

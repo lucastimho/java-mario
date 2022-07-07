@@ -14,6 +14,7 @@ class Controller implements MouseListener, KeyListener
 	boolean keyUp;
 	boolean keyDown;
 	boolean keySpace;
+	boolean keyCtrl;
 	int queuedSpaces;
 
 	Controller(Model m)
@@ -64,6 +65,7 @@ class Controller implements MouseListener, KeyListener
 			case KeyEvent.VK_LEFT: keyLeft = true; break;
 			case KeyEvent.VK_UP: keyUp = true; break;
 			case KeyEvent.VK_SPACE: keySpace = true; queuedSpaces++; break;
+			case KeyEvent.VK_CONTROL: keyCtrl = true; break;
 		}
 		char c = e.getKeyChar();
 		if(c == 's')
@@ -86,6 +88,7 @@ class Controller implements MouseListener, KeyListener
 			case KeyEvent.VK_LEFT: keyLeft = false; break;
 			case KeyEvent.VK_SPACE: keySpace = false; break;
 			case KeyEvent.VK_DOWN: keyDown = false; break;
+			case KeyEvent.VK_CONTROL: keyCtrl = false; break;
 		}
 	}
 
@@ -100,5 +103,7 @@ class Controller implements MouseListener, KeyListener
 		if(keyLeft) model.mario.x -= 4;
 		if((keySpace || queuedSpaces > 0) && model.mario.offGrounCount < 3) model.mario.jump();
 		queuedSpaces = 0;
+		if(keyCtrl) model.fireball.shoot = true;
+		else model.fireball.shoot = false;
 	}
 }

@@ -6,6 +6,7 @@ class Model {
     Tube tubes;
     Goomba goombas;
     ArrayList<Sprite> sprites;
+    Fireball fireball;
     int offGrounCount;
 
     Model()
@@ -13,6 +14,7 @@ class Model {
         sprites = new ArrayList<>();
         mario = new Mario();
         goombas = new Goomba(350, 700);
+        fireball = new Fireball();
     }
     Model (Json obj)
     {}
@@ -20,6 +22,7 @@ class Model {
     {
         mario.update();
         goombas.update();
+        fireball.update();
         for(Iterator<Sprite> it = sprites.iterator(); it.hasNext(); )
         {
             Sprite t = it.next(); //Sprite was previously Tube
