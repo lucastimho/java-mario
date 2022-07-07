@@ -62,8 +62,12 @@ class View extends JPanel
 				Sprite t = (Tube) model.tubeSprites.get(i);
 				g.drawImage(tube, t.x - model.mario.x + 200, t.y, null);
 			}
+			for(int i = 0; i < model.goombaSprites.size(); i++)
+			{
+				Sprite goom = (Goomba) model.goombaSprites.get(i);
+				g.drawImage(goomba, goom.x, 400 - goom.height, null);
+			}
 			g.drawImage(marios[model.mario.frame], 200, model.mario.y - 95, null);
-			g.drawImage(goomba, model.goombas.x, 400 - model.goombas.height, null);
 			if (model.fireball.shoot) g.drawImage(fireball, model.mario.x + model.mario.width, model.mario.y - (model.mario.height / 2), null);
 		}
 		catch(Exception e)

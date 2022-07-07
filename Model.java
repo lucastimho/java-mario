@@ -3,8 +3,8 @@ import java.util.Iterator;
 
 class Model {
     Mario mario;
-    Goomba goombas;
     ArrayList<Sprite> tubeSprites;
+    ArrayList<Sprite> goombaSprites;
     Fireball fireball;
     int offGrounCount;
 
@@ -12,7 +12,7 @@ class Model {
     {
         tubeSprites = new ArrayList<>();
         mario = new Mario();
-        goombas = new Goomba(350, 700);
+        goombaSprites = new ArrayList<>();
         fireball = new Fireball();
     }
     Model (Json obj)
@@ -20,7 +20,6 @@ class Model {
     public void update()
     {
         mario.update();
-        goombas.update();
         fireball.update();
         for(Iterator<Sprite> it = tubeSprites.iterator(); it.hasNext(); )
         {
@@ -30,8 +29,14 @@ class Model {
             {
                 getOutOfTheTube(t);
             }
-            if(goombas.doesCollide(t))
-                goombas.horiz_vel *= -1;
+        }
+        for(Iterator<Sprite> it = goombaSprites.iterator(); it.hasNext(); )
+        {
+            Sprite g = it.next(); //Sprite was previously Tube
+            if(goombaSprites.size() > 0) 
+            {
+                g.update();
+            }
         }
     }
     void getOutOfTheTube(Sprite t) //Sprite was previously Tube
@@ -58,6 +63,15 @@ class Model {
     public void removeTube(int index)
     {
         tubeSprites.remove(index);
+    }
+    public void addNewGoomba(int mouse_x, int mouse_y)
+    {
+        Sprite t = new Goomba(mouse_x, mouse_y);
+        goombaSprites.add(t);
+    }
+    public void removeGoomba(int index)
+    {
+        goombaSprites.remove(index);
     }
     Json marshal()
     {

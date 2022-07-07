@@ -3,7 +3,14 @@ abstract class Sprite {
     int y;
     int width;
     int height;
-    
+    boolean doesCollide(Sprite tube) //Sprite was previously Tube
+    {
+        if(x + width <= tube.x)
+            return false;
+        if(x >= tube.x + tube.width)
+            return false;
+        else return true;
+    }
     abstract void update();
     Json marshal()
     {

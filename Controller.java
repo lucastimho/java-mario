@@ -50,6 +50,24 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 			else
 				model.removeTube(index);
 		}
+		else if (e.getButton() == 3)
+		{
+			Sprite theGoombaIClickedOn = (Goomba) null;
+			int index = 0;
+			for(int i = 0; i < model.goombaSprites.size(); i++)
+			{
+				Sprite t = (Goomba) model.goombaSprites.get(i); //Sprite was previously Tube
+				if(t.isThatClickInMe(e.getX() + model.mario.x - 200, e.getY()))
+				{
+					theGoombaIClickedOn = t;
+					index = i;				
+				}
+			}
+			if(theGoombaIClickedOn == null)
+				model.addNewGoomba(e.getX() + model.mario.x - 200, e.getY());
+			else
+				model.removeGoomba(index);
+		}
 	}
 
 	public void mouseReleased(MouseEvent e) {    }
