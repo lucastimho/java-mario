@@ -32,6 +32,7 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 
 	public void mousePressed(MouseEvent e)
 	{
+		// Left click to add tubes
 		if (e.getButton() == 1)
 		{
 			Sprite theTubeIClickedOn = (Tube) null;
@@ -50,6 +51,7 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 			else
 				model.removeTube(index);
 		}
+		// Right click to add Goombas
 		else if (e.getButton() == 3)
 		{
 			Sprite theGoombaIClickedOn = (Goomba) null;

@@ -15,13 +15,13 @@ class Model {
         mario = new Mario();
         goombaSprites = new ArrayList<>();
         fireballSprites = new ArrayList<>();
-        // fireball = new Fireball(mario.x + mario.width, mario.y - (mario.height / 2));
     }
     Model (Json obj)
     {}
     public void update()
     {
         mario.update();
+        // Iterates through Tubes 
         for(Iterator<Sprite> it = tubeSprites.iterator(); it.hasNext(); )
         {
             Sprite t = it.next(); //Sprite was previously Tube
@@ -30,6 +30,7 @@ class Model {
             {
                 getOutOfTheTube(t);
             }
+            // Iterates through Goombas
             for(Iterator<Sprite> ig = goombaSprites.iterator(); ig.hasNext(); )
             {
                 Sprite g = ig.next(); //Sprite was previously Tube
@@ -50,6 +51,7 @@ class Model {
             f.update();
         }
     }
+    // Code for tube interations / collisions
     void getOutOfTheTube(Sprite t) //Sprite was previously Tube
     {
         if(mario.x + mario.width >= t.x && mario.prev_x + mario.width <= t.x) mario.x = t.x - mario.width;
@@ -71,6 +73,7 @@ class Model {
         if(goom.x + goom.width >= t.x && goom.prev_x + goom.width <= t.x) goom.x = t.x - goom.width;
         else if (goom.x <= t.x + t.width && goom.prev_x >= t.x + t.width) goom.x = t.x + t.width;
     }  
+    // Adding and removing tubes
     public void addNewTube(int mouse_x, int mouse_y)
     {
         Sprite t = new Tube(mouse_x, mouse_y);
@@ -80,6 +83,7 @@ class Model {
     {
         tubeSprites.remove(index);
     }
+    // Adding and removing Goombas
     public void addNewGoomba(int mouse_x, int mouse_y)
     {
         Sprite t = new Goomba(mouse_x, mouse_y);
@@ -89,11 +93,13 @@ class Model {
     {
         goombaSprites.remove(index);
     }
+    // Adding fireballs
     public void addFireball()
     {
         Sprite fire = new Fireball(mario.x + mario.width + 200, mario.y - (mario.height / 2));
         fireballSprites.add(fire);
     }
+    // Marshal commands
     Json marshal()
     {
         Json ob = Json.newObject();
@@ -110,6 +116,7 @@ class Model {
         for(int i = 0; i < jsonList.size(); i++)
             tubeSprites.add(new Tube(jsonList.get(i)));
     }
+    // State function
     void remember_state()
     {
         mario.remember_state();
