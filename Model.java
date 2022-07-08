@@ -35,7 +35,11 @@ class Model {
                 if(goombaSprites.size() > 0) 
                 {
                     g.update();
-                    if(g.doesCollide(t)) g.horiz_vel *= -1;
+                    if(g.doesCollide(t)) 
+                    {
+                        g.horiz_vel *= -1;
+                        getGoombaOutofTube(g, t);
+                    }
                 }
             }
         }
@@ -55,6 +59,11 @@ class Model {
             mario.y = t.y + t.height + mario.height;
         }
         else System.out.println("error");
+    }
+    void getGoombaOutofTube(Sprite goom, Sprite t)
+    {
+        if(goom.x + goom.width >= t.x && goom.prev_x + goom.width <= t.x) goom.x = t.x - goom.width;
+        else if (goom.x <= t.x + t.width && goom.prev_x >= t.x + t.width) goom.x = t.x + t.width;
     }  
     public void addNewTube(int mouse_x, int mouse_y)
     {
