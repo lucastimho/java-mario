@@ -1,8 +1,11 @@
 abstract class Sprite {
     int x;
     int y;
+    int prev_x;
+    int prev_y;
     int width;
     int height;
+    double horiz_vel;
     boolean doesCollide(Sprite tube) //Sprite was previously Tube
     {
         if(x + width <= tube.x)
@@ -26,6 +29,11 @@ abstract class Sprite {
         if(mouse_x > x + width)
           return false;
         return true;
+    }
+    void remember_state()
+    {
+        prev_x = x;
+        prev_y = y;
     }
     // abstract void draw();
 }

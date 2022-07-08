@@ -1,8 +1,6 @@
 public class Mario extends Sprite {
     double vert_vel;
     int frame;
-    int prev_x;
-    int prev_y;
     int offGrounCount;
     
     Mario()
@@ -45,10 +43,5 @@ public class Mario extends Sprite {
     void jump() 
     {
         vert_vel -= 13.1;
-    }
-    void remember_state()
-    {
-        prev_x = x;
-        prev_y = y;
     }
 }

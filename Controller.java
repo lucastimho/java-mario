@@ -57,7 +57,7 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 			for(int i = 0; i < model.goombaSprites.size(); i++)
 			{
 				Sprite t = (Goomba) model.goombaSprites.get(i); //Sprite was previously Tube
-				if(t.isThatClickInMe(e.getX() + model.mario.x - 200, e.getY()))
+				if(t.isThatClickInMe(e.getX() + model.mario.x, e.getY()))
 				{
 					theGoombaIClickedOn = t;
 					index = i;				

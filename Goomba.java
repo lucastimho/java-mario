@@ -1,5 +1,4 @@
 public class Goomba extends Sprite {
-    double horiz_vel;
     Goomba(int xx, int yy)
     {
         x = xx;

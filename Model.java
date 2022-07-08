@@ -29,13 +29,14 @@ class Model {
             {
                 getOutOfTheTube(t);
             }
-        }
-        for(Iterator<Sprite> it = goombaSprites.iterator(); it.hasNext(); )
-        {
-            Sprite g = it.next(); //Sprite was previously Tube
-            if(goombaSprites.size() > 0) 
+            for(Iterator<Sprite> ig = goombaSprites.iterator(); ig.hasNext(); )
             {
-                g.update();
+                Sprite g = ig.next(); //Sprite was previously Tube
+                if(goombaSprites.size() > 0) 
+                {
+                    g.update();
+                    if(g.doesCollide(t)) g.horiz_vel *= -1;
+                }
             }
         }
     }
@@ -92,6 +93,11 @@ class Model {
     void remember_state()
     {
         mario.remember_state();
+        for(Iterator<Sprite> ig = goombaSprites.iterator(); ig.hasNext(); )
+            {
+                Sprite g = ig.next(); //Sprite was previously Tube
+                if(goombaSprites.size() > 0) g.remember_state();
+            }
     }
     
 }
