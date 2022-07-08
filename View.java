@@ -44,10 +44,6 @@ class View extends JPanel
 		}
 		return im;
 	}
-	public void shootFireball(Graphics g)
-	{
-		
-	}
 	
 	public void paintComponent(Graphics g)
 	{
@@ -68,7 +64,7 @@ class View extends JPanel
 				g.drawImage(goomba, goom.x - model.mario.x + 200, 400 - goom.height, null);
 			}
 			g.drawImage(marios[model.mario.frame], 200, model.mario.y - 95, null);
-			if (model.fireball.shoot) g.drawImage(fireball, model.mario.x + model.mario.width, model.mario.y - (model.mario.height / 2), null);
+			if (model.fireball.shoot) g.drawImage(fireball, model.fireball.x, model.fireball.y, null);
 		}
 		catch(Exception e)
 		{

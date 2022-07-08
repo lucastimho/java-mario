@@ -13,14 +13,14 @@ class Model {
         tubeSprites = new ArrayList<>();
         mario = new Mario();
         goombaSprites = new ArrayList<>();
-        fireball = new Fireball();
+        fireball = new Fireball(mario.x + mario.width, mario.y - (mario.height / 2));
     }
     Model (Json obj)
     {}
     public void update()
     {
         mario.update();
-        fireball.update();
+        // fireball.update();
         for(Iterator<Sprite> it = tubeSprites.iterator(); it.hasNext(); )
         {
             Sprite t = it.next(); //Sprite was previously Tube

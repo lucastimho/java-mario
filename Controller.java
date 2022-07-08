@@ -112,7 +112,7 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 			case KeyEvent.VK_LEFT: keyLeft = false; break;
 			case KeyEvent.VK_SPACE: keySpace = false; break;
 			case KeyEvent.VK_DOWN: keyDown = false; break;
-			case KeyEvent.VK_CONTROL: keyCtrl = false; break;
+			// case KeyEvent.VK_CONTROL: keyCtrl = false; break;
 		}
 	}
 
@@ -128,6 +128,5 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 		if((keySpace || queuedSpaces > 0) && model.mario.offGrounCount < 3) model.mario.jump();
 		queuedSpaces = 0;
 		if(keyCtrl) model.fireball.shoot = true;
-		else model.fireball.shoot = false;
 	}
 }
