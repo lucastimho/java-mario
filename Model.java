@@ -96,7 +96,7 @@ class Model {
     // Adding fireballs
     public void addFireball()
     {
-        Sprite fire = new Fireball(mario.x + mario.width + 200, mario.y - (mario.height / 2));
+        Sprite fire = new Fireball(mario.x + mario.width, mario.y - (mario.height / 2));
         fireballSprites.add(fire);
     }
     // Marshal commands
