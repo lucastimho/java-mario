@@ -5,7 +5,8 @@ class Model {
     Mario mario;
     ArrayList<Sprite> tubeSprites;
     ArrayList<Sprite> goombaSprites;
-    Fireball fireball;
+    ArrayList<Sprite> fireballSprites;
+    boolean shoot = false;
     int offGrounCount;
 
     Model()
@@ -13,14 +14,14 @@ class Model {
         tubeSprites = new ArrayList<>();
         mario = new Mario();
         goombaSprites = new ArrayList<>();
-        fireball = new Fireball(mario.x + mario.width, mario.y - (mario.height / 2));
+        fireballSprites = new ArrayList<>();
+        // fireball = new Fireball(mario.x + mario.width, mario.y - (mario.height / 2));
     }
     Model (Json obj)
     {}
     public void update()
     {
         mario.update();
-        // fireball.update();
         for(Iterator<Sprite> it = tubeSprites.iterator(); it.hasNext(); )
         {
             Sprite t = it.next(); //Sprite was previously Tube
@@ -42,6 +43,11 @@ class Model {
                     }
                 }
             }
+        }
+        for(Iterator<Sprite> it = fireballSprites.iterator(); it.hasNext();)
+        {
+            Sprite f = it.next();
+            f.update();
         }
     }
     void getOutOfTheTube(Sprite t) //Sprite was previously Tube
@@ -82,6 +88,11 @@ class Model {
     public void removeGoomba(int index)
     {
         goombaSprites.remove(index);
+    }
+    public void addFireball()
+    {
+        Sprite fire = new Fireball(mario.x + mario.width + 200, mario.y - (mario.height / 2));
+        fireballSprites.add(fire);
     }
     Json marshal()
     {
