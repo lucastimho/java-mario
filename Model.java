@@ -49,6 +49,8 @@ class Model {
         {
             Sprite f = it.next();
             f.update();
+            // if (f.x > 800 || f.x < mario.x - 200 || f.y > 400 + f.height) removeFireball(index);
+            // index++;
         }
     }
     // Code for tube interations / collisions
@@ -98,6 +100,10 @@ class Model {
     {
         Sprite fire = new Fireball(mario.x + mario.width, mario.y - (mario.height / 2));
         fireballSprites.add(fire);
+    }
+    public void removeFireball(int index)
+    {
+        fireballSprites.remove(index);
     }
     // Marshal commands
     Json marshal()
