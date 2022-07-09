@@ -1,6 +1,4 @@
 public class Fireball extends Sprite {
-    double horiz_vel;
-    double vert_vel;
     Fireball(int xx, int yy)
     {
         x = xx;

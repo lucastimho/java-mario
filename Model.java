@@ -50,6 +50,8 @@ class Model {
         {
             Sprite f = it.next();
             f.update();
+            if (f.y + f.height > 400) f.vert_vel = -5.3;
+            else f.vert_vel += f.vert_vel;
         }
     }
     // Code for tube interations / collisions
@@ -127,7 +129,7 @@ class Model {
         mario.remember_state();
         for(Iterator<Sprite> ig = goombaSprites.iterator(); ig.hasNext(); )
             {
-                Sprite g = ig.next(); //Sprite was previously Tube
+                Sprite g = ig.next();
                 if(goombaSprites.size() > 0) g.remember_state();
             }
     }

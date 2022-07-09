@@ -1,5 +1,4 @@
 public class Mario extends Sprite {
-    double vert_vel;
     int frame;
     int offGrounCount;
     
