@@ -129,21 +129,19 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 		if(keyLeft) model.mario.x -= 4;
 		if((keySpace || queuedSpaces > 0) && model.mario.offGrounCount < 3) model.mario.jump();
 		queuedSpaces = 0;
+		int index = 0;
 		if(keyCtrl)
 		{
-			Sprite fireballToRemove = (Fireball) null;
-			int index = 0;
-			for (int i = 0; i < model.fireballSprites.size(); i++)
+			model.addFireball();
+		}
+		for (int i = 0; i < model.fireballSprites.size(); i++)
+		{
+			Sprite fire = (Fireball) model.fireballSprites.get(i);
+			if (fire.x > 800 || fire.x < model.mario.x - 200 || fire.y > 400 + fire.height)
 			{
-				Sprite fire = (Fireball) model.fireballSprites.get(i);
-				if (fire.x > 800 || fire.x < model.mario.x - 200 || fire.y > 400 + fire.height)
-				{
-					fireballToRemove = fire;
-					index = i;
-				}
+				index = i;
+				model.removeFireball(index);
 			}
-			if (fireballToRemove == null) model.addFireball();
-			else model.removeFireball(index);
 		}
 	}
 }
