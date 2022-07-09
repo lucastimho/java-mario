@@ -127,6 +127,7 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 		if(keyLeft) model.mario.x -= 4;
 		if((keySpace || queuedSpaces > 0) && model.mario.offGrounCount < 3) model.mario.jump();
 		queuedSpaces = 0;
+		// Fireball behavior
 		int index = 0;
 		if(keyCtrl)
 		{

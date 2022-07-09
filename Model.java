@@ -45,6 +45,7 @@ class Model {
                 }
             }
         }
+        // Iterates through fireballs
         for(Iterator<Sprite> it = fireballSprites.iterator(); it.hasNext();)
         {
             Sprite f = it.next();
@@ -93,7 +94,7 @@ class Model {
     {
         goombaSprites.remove(index);
     }
-    // Adding fireballs
+    // Adding and removing fireballs
     public void addFireball()
     {
         Sprite fire = new Fireball(mario.x + mario.width, mario.y - (mario.height / 2));
