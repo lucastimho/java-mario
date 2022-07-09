@@ -50,8 +50,8 @@ class Model {
         {
             Sprite f = it.next();
             f.update();
-            if (f.y + f.height > 400) f.vert_vel = -5.3;
-            else f.vert_vel += f.vert_vel;
+            if (f.y + f.height > 400) f.vert_vel -= 5.3;
+            else f.vert_vel += 1.7;
         }
     }
     // Code for tube interations / collisions
