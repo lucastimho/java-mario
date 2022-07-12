@@ -6,7 +6,7 @@ public class Fireball extends Sprite {
         width = 47;
         height = 47;
         horiz_vel = 1.1;
-        vert_vel = 1.7;
+        vert_vel = gravity;
     }
     void update()
     {

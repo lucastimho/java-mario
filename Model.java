@@ -51,7 +51,7 @@ class Model {
             Sprite f = it.next();
             f.update();
             if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
-            else f.vert_vel += 1.7;
+            else f.vert_vel = f.gravity;
         }
     }
     // Code for tube interations / collisions
