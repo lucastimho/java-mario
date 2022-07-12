@@ -7,6 +7,7 @@ abstract class Sprite {
     int height;
     double horiz_vel;
     double vert_vel;
+    double bounce_vel = 3.7;
     boolean doesCollide(Sprite tube) //Sprite was previously Tube
     {
         if(x + width <= tube.x)
