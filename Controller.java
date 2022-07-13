@@ -136,10 +136,14 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 		for (int i = 0; i < model.fireballSprites.size(); i++)
 		{
 			Sprite fire = (Fireball) model.fireballSprites.get(i);
-			if (fire.x > 800 || fire.x < model.mario.x - 200 || fire.y > 400 + fire.height)
+			for (int in = 0; i < model.tubeSprites.size(); in++)
 			{
-				index = i;
-				model.removeFireball(index);
+				Sprite tube = (Tube) model.tubeSprites.get(in);
+				if (fire.x > 800 || fire.x < model.mario.x - 200 || fire.y > 400 + fire.height || fire.doesCollide(tube))
+				{
+					index = i;
+					model.removeFireball(index);
+				}
 			}
 		}
 	}
