@@ -7,7 +7,6 @@ class Model {
     ArrayList<Sprite> goombaSprites;
     ArrayList<Sprite> fireballSprites;
     int offGrounCount;
-    boolean onFire;
 
     Model()
     {

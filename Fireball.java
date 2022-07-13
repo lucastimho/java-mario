@@ -21,16 +21,4 @@ public class Fireball extends Sprite {
             return false;
         else return true;
     }
-    boolean hitsGoomba(Sprite goomba) //Sprite was previously Tube
-    {
-        if(x + width <= goomba.x)
-            return false;
-        if(x >= goomba.x + goomba.width)
-            return false;
-            if(y <= goomba.y ) // assumes bigger is downward
-            return false;
-        if(y >= goomba.y + goomba.height) // assumes bigger is downward
-            return false;
-        return true;
-    }
 }
