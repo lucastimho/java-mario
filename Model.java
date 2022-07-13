@@ -38,7 +38,7 @@ class Model {
             {
                 for(Iterator<Sprite> it = tubeSprites.iterator(); it.hasNext(); )
                 {
-                    Sprite t = it.hasNext();
+                    Sprite t = (Tube) it.next();
                     g.update();
                     if(g.doesCollide(t)) 
                     {
@@ -50,16 +50,20 @@ class Model {
         }
         // Iterates through fireballs
          for(Iterator<Sprite> fi = fireballSprites.iterator(); fi.hasNext();)
-                 {
-                     Sprite f = fi.next();
-                     f.update();
-                     if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
-                     else f.vert_vel = f.gravity;
-                     if (g.hitsGoomba(f))
-                     {
-                         g.onFire = true;
-                     }
-                 }
+        {
+            Sprite f = fi.next();
+            f.update();
+            if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
+            else f.vert_vel = f.gravity;
+            for(Iterator<Sprite> ig = goombaSprites.iterator(); ig.hasNext(); )
+            {
+                Sprite g = (Goomba) ig.next();
+                if (g.hitsGoomba(f))
+                {
+                    g.onFire = true;
+                }
+            }
+        }
     }
     // Code for tube interations / collisions
     void getOutOfTheTube(Sprite t) //Sprite was previously Tube
