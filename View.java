@@ -13,6 +13,7 @@ class View extends JPanel
 {
 	BufferedImage tube;
 	BufferedImage goomba;
+	BufferedImage goombaFire;
 	BufferedImage fireball;
 	Model model;
 	BufferedImage[] marios;
@@ -22,6 +23,7 @@ class View extends JPanel
 		model = m;
 		tube = loadImage("tube.png");
 		goomba = loadImage("gumba.png");
+		goombaFire = loadImage("gumba_fire.png");
 		fireball = loadImage("fireball.png");
 		marios = new BufferedImage[5];
 		marios[0] = loadImage("mario1.png");
