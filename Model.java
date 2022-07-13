@@ -36,10 +36,10 @@ class Model {
             Sprite g = (Goomba) ig.next(); //Sprite was previously Tube
             if (goombaSprites.size() > 0)
             {
+                g.update();
                 for(Iterator<Sprite> it = tubeSprites.iterator(); it.hasNext(); )
                 {
                     Sprite t = (Tube) it.next();
-                    g.update();
                     if(g.doesCollide(t)) 
                     {
                         g.horiz_vel *= -1;
