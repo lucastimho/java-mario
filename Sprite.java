@@ -9,7 +9,7 @@ abstract class Sprite {
     double vert_vel;
     double bounce_vel = -7.7;
     double gravity = 1.7;
-    boolean onFire;
+    boolean onFire = false;
     boolean doesCollide(Sprite tube) //Sprite was previously Tube
     {
         if(x + width <= tube.x)

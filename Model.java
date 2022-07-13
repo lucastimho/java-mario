@@ -33,8 +33,13 @@ class Model {
             for(Iterator<Sprite> ig = goombaSprites.iterator(); ig.hasNext(); )
             {
                 Sprite g = ig.next(); //Sprite was previously Tube
-                if(goombaSprites.size() > 0) 
+                // Iterates through fireballs
+                for(Iterator<Sprite> fi = fireballSprites.iterator(); fi.hasNext();)
                 {
+                    Sprite f = fi.next();
+                    f.update();
+                    if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
+                    else f.vert_vel = f.gravity;
                     g.update();
                     if(g.doesCollide(t)) 
                     {
@@ -43,14 +48,6 @@ class Model {
                     }
                 }
             }
-        }
-        // Iterates through fireballs
-        for(Iterator<Sprite> it = fireballSprites.iterator(); it.hasNext();)
-        {
-            Sprite f = it.next();
-            f.update();
-            if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
-            else f.vert_vel = f.gravity;
         }
     }
     // Code for tube interations / collisions
