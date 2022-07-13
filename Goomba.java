@@ -15,18 +15,6 @@ public class Goomba extends Sprite {
             return false;
         else return true;
     }
-    boolean hitsGoomba(Sprite fire) //Sprite was previously Tube
-    {
-        if(x + width <= fire.x)
-            return false;
-        if(x >= fire.x + fire.width)
-            return false;
-            if(y <= fire.y ) // assumes bigger is downward
-            return false;
-        if(y >= fire.y + fire.height) // assumes bigger is downward
-            return false;
-        return true;
-    }
     void update() 
     {
       x += horiz_vel;

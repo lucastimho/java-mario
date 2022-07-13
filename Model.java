@@ -32,7 +32,7 @@ class Model {
             // Iterates through Goombas
             for(Iterator<Sprite> ig = goombaSprites.iterator(); ig.hasNext(); )
             {
-                Sprite g = ig.next(); //Sprite was previously Tube
+                Sprite g = (Goomba) ig.next(); //Sprite was previously Tube
                 // Iterates through fireballs
                 for(Iterator<Sprite> fi = fireballSprites.iterator(); fi.hasNext();)
                 {
@@ -45,6 +45,10 @@ class Model {
                     {
                         g.horiz_vel *= -1;
                         getGoombaOutofTube(g, t);
+                    }
+                    if (g.hitsGoomba(f))
+                    {
+                        g.onFire = true;
                     }
                 }
             }
