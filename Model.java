@@ -36,18 +36,18 @@ class Model {
                 // Iterates through fireballs
                 if (goombaSprites.size() > 0)
                 {
+                    g.update();
+                    if(g.doesCollide(t)) 
+                    {
+                        g.horiz_vel *= -1;
+                        getGoombaOutofTube(g, t);
+                    }
                     for(Iterator<Sprite> fi = fireballSprites.iterator(); fi.hasNext();)
                     {
                         Sprite f = fi.next();
                         f.update();
                         if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
                         else f.vert_vel = f.gravity;
-                        g.update();
-                        if(g.doesCollide(t)) 
-                        {
-                            g.horiz_vel *= -1;
-                            getGoombaOutofTube(g, t);
-                        }
                         if (g.hitsGoomba(f))
                         {
                             g.onFire = true;
