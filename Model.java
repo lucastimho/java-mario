@@ -29,33 +29,37 @@ class Model {
             {
                 getOutOfTheTube(t);
             }
-            // Iterates through Goombas
-            for(Iterator<Sprite> ig = goombaSprites.iterator(); ig.hasNext(); )
+        }
+        // Iterates through Goombas
+        for(Iterator<Sprite> ig = goombaSprites.iterator(); ig.hasNext(); )
+        {
+            Sprite g = (Goomba) ig.next(); //Sprite was previously Tube
+            if (goombaSprites.size() > 0)
             {
-                Sprite g = (Goomba) ig.next(); //Sprite was previously Tube
-                // Iterates through fireballs
-                if (goombaSprites.size() > 0)
+                for(Iterator<Sprite> it = tubeSprites.iterator(); it.hasNext(); )
                 {
+                    Sprite t = it.hasNext();
                     g.update();
                     if(g.doesCollide(t)) 
                     {
                         g.horiz_vel *= -1;
                         getGoombaOutofTube(g, t);
                     }
-                    for(Iterator<Sprite> fi = fireballSprites.iterator(); fi.hasNext();)
-                    {
-                        Sprite f = fi.next();
-                        f.update();
-                        if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
-                        else f.vert_vel = f.gravity;
-                        if (g.hitsGoomba(f))
-                        {
-                            g.onFire = true;
-                        }
-                    }
                 }
             }
         }
+        // Iterates through fireballs
+         for(Iterator<Sprite> fi = fireballSprites.iterator(); fi.hasNext();)
+                 {
+                     Sprite f = fi.next();
+                     f.update();
+                     if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
+                     else f.vert_vel = f.gravity;
+                     if (g.hitsGoomba(f))
+                     {
+                         g.onFire = true;
+                     }
+                 }
     }
     // Code for tube interations / collisions
     void getOutOfTheTube(Sprite t) //Sprite was previously Tube
