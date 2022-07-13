@@ -34,21 +34,24 @@ class Model {
             {
                 Sprite g = (Goomba) ig.next(); //Sprite was previously Tube
                 // Iterates through fireballs
-                for(Iterator<Sprite> fi = fireballSprites.iterator(); fi.hasNext();)
+                if (goombaSprites.size() > 0)
                 {
-                    Sprite f = fi.next();
-                    f.update();
-                    if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
-                    else f.vert_vel = f.gravity;
-                    g.update();
-                    if(g.doesCollide(t)) 
+                    for(Iterator<Sprite> fi = fireballSprites.iterator(); fi.hasNext();)
                     {
-                        g.horiz_vel *= -1;
-                        getGoombaOutofTube(g, t);
-                    }
-                    if (g.hitsGoomba(f))
-                    {
-                        g.onFire = true;
+                        Sprite f = fi.next();
+                        f.update();
+                        if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
+                        else f.vert_vel = f.gravity;
+                        g.update();
+                        if(g.doesCollide(t)) 
+                        {
+                            g.horiz_vel *= -1;
+                            getGoombaOutofTube(g, t);
+                        }
+                        if (g.hitsGoomba(f))
+                        {
+                            g.onFire = true;
+                        }
                     }
                 }
             }
