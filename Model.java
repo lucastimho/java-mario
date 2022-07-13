@@ -52,15 +52,18 @@ class Model {
          for(Iterator<Sprite> fi = fireballSprites.iterator(); fi.hasNext();)
         {
             Sprite f = fi.next();
-            f.update();
-            if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
-            else f.vert_vel = f.gravity;
-            for(Iterator<Sprite> ig = goombaSprites.iterator(); ig.hasNext(); )
+            if (fireballSprites.size() > 0)
             {
-                Sprite g = (Goomba) ig.next();
-                if (g.hitsGoomba(f))
+                f.update();
+                if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
+                else f.vert_vel = f.gravity;
+                for(Iterator<Sprite> ig = goombaSprites.iterator(); ig.hasNext(); )
                 {
-                    g.onFire = true;
+                    Sprite g = (Goomba) ig.next();
+                    if (g.hitsGoomba(f))
+                    {
+                        g.onFire = true;
+                    }
                 }
             }
         }
