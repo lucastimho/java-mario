@@ -38,5 +38,4 @@ abstract class Sprite {
         prev_x = x;
         prev_y = y;
     }
-    // abstract void draw();
 }
