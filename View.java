@@ -55,17 +55,21 @@ class View extends JPanel
 			g.fillRect(0, 0, getWidth(), getHeight());
 			g.setColor(Color.gray);
 			g.drawLine(0, 400, 1000, 400);
+			// Tube image iterator
 			for(int i = 0; i < model.tubeSprites.size(); i++)
 			{
 				Sprite t = (Tube) model.tubeSprites.get(i);
 				g.drawImage(tube, t.x - model.mario.x + 200, t.y, null);
 			}
+			// Goomba image iterator
 			for(int i = 0; i < model.goombaSprites.size(); i++)
 			{
 				Sprite goom = (Goomba) model.goombaSprites.get(i);
 				g.drawImage(goomba, goom.x - model.mario.x + 200, 400 - goom.height, null);
 			}
+			// Mario image
 			g.drawImage(marios[model.mario.frame], 200, model.mario.y - 95, null);
+			// Fireball Iterator
 			for(int i = 0; i < model.fireballSprites.size(); i++)
 			{
 				Sprite fire = (Fireball) model.fireballSprites.get(i);
