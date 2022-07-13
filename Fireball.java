@@ -13,12 +13,4 @@ public class Fireball extends Sprite {
         x += horiz_vel;
         y += vert_vel;
     }
-    boolean doesCollide(Sprite tube) //Sprite was previously Tube
-    {
-        if(x + width <= tube.x)
-            return false;
-        if(x >= tube.x + tube.width)
-            return false;
-        else return true;
-    }
 }
