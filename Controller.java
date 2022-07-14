@@ -143,6 +143,21 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 				}
 			}
 		}
+		if (model.goombaSprites.size() > 0 && model.fireballSprites.size() > 0)
+		{
+			for(int i = 0; i < model.goombaSprites.size(); i++)
+			{
+				Sprite g = (Goomba) model.goombaSprites.get(i);
+				for (int ii = 0; ii < model.goombaSprites.size(); ii++)
+				{
+					Sprite f = (Fireball) model.fireballSprites.get(ii);
+					if (g.hitsGoomba(f))
+					{
+						g.onFire = true;
+					}
+				}
+			}
+		}
 		if (model.tubeSprites.size() > 0 && model.fireballSprites.size() > 0)
 		{
 			for (int i = 0; i < model.tubeSprites.size(); i++)

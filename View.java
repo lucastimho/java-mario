@@ -66,7 +66,7 @@ class View extends JPanel
 					g.drawImage(goombaFire, goom.x - model.mario.x + 200, 400 - goom.height, null);
 					try
 					{
-						Thread.sleep(30);
+						Thread.sleep(1000);
 						model.goombaSprites.remove(i);
 					} catch (Exception e)
 					{

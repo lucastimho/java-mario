@@ -24,11 +24,11 @@ abstract class Sprite {
             return false;
         if(x >= fire.x + fire.width)
             return false;
-            if(y <= fire.y ) // assumes bigger is downward
+        if(y <= fire.y ) // assumes bigger is downward
             return false;
         if(y >= fire.y + fire.height) // assumes bigger is downward
             return false;
-        return true;
+        else return true;
     }
     abstract void update();
     Json marshal()
