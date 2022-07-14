@@ -24,10 +24,13 @@ class Model {
         for(Iterator<Sprite> it = tubeSprites.iterator(); it.hasNext(); )
         {
             Sprite t = it.next(); //Sprite was previously Tube
-            t.update();
-            if(mario.doesCollide(t))
+            if (tubeSprites.size() > 0)
             {
-                getOutOfTheTube(t);
+                t.update();
+                if(mario.doesCollide(t))
+                {
+                    getOutOfTheTube(t);
+                }
             }
         }
         // Iterates through Goombas

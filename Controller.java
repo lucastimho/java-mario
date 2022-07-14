@@ -128,7 +128,6 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 		if((keySpace || queuedSpaces > 0) && model.mario.offGrounCount < 3) model.mario.jump();
 		queuedSpaces = 0;
 		// Fireball behavior
-		int index = 0;
 		if(keyCtrl)
 		{
 			model.addFireball();
@@ -136,13 +135,26 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 		for (int i = 0; i < model.fireballSprites.size(); i++)
 		{
 			Sprite fire = (Fireball) model.fireballSprites.get(i);
-			for (int in = 0; i < model.tubeSprites.size(); in++)
+			if (model.fireballSprites.size() > 0)
 			{
-				Sprite tube = (Tube) model.tubeSprites.get(in);
-				if (fire.x > 800 || fire.x < model.mario.x - 200 || fire.y > 400 + fire.height || fire.doesCollide(tube))
+				if (fire.x > 800 || fire.x < model.mario.x - 200 || fire.y > 400 + fire.height)
 				{
-					index = i;
-					model.removeFireball(index);
+					model.removeFireball(i);
+				}
+			}
+		}
+		if (model.tubeSprites.size() > 0 && model.fireballSprites.size() > 0)
+		{
+			for (int i = 0; i < model.tubeSprites.size(); i++)
+			{
+				Sprite tube = (Tube) model.tubeSprites.get(i);
+				for (int ii = 0; ii < model.fireballSprites.size(); ii++)
+				{
+					Sprite fire = (Fireball) model.fireballSprites.get(ii);
+					if (fire.doesCollide(tube))
+					{
+						model.removeFireball(ii);
+					}
 				}
 			}
 		}
