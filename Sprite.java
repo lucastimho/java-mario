@@ -7,7 +7,7 @@ abstract class Sprite {
     int height;
     double horiz_vel;
     double vert_vel;
-    double bounce_vel = -7.7;
+    double bounce_vel;
     double gravity = 1.7;
     boolean onFire = false;
     boolean doesCollide(Sprite tube) //Sprite was previously Tube
@@ -26,8 +26,6 @@ abstract class Sprite {
             return false;
         if(y <= goomba.y ) // assumes bigger is downward
             return false;
-        // if(y >= fire.y + fire.height) // assumes bigger is downward
-        //     return false;
         else return true;
     }
     abstract void update();

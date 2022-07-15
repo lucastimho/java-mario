@@ -9,6 +9,7 @@ public class Mario extends Sprite {
         width = 60;
         height = 95;
         vert_vel = 1.2;
+        bounce_vel = -13.1;
     }
 
     void update()
@@ -41,6 +42,6 @@ public class Mario extends Sprite {
     }
     void jump() 
     {
-        vert_vel -= 13.1;
+        y += bounce_vel;
     }
 }
