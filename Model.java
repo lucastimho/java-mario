@@ -68,7 +68,6 @@ class Model {
                         if (f.hitsGoomba(g))
                         {
                             g.onFire = true;
-                            System.out.println(g.onFire);
                         }
                     }            
                 }
