@@ -23,7 +23,7 @@ class Model {
         // Iterates through Tubes 
         for(Iterator<Sprite> it = tubeSprites.iterator(); it.hasNext(); )
         {
-            Sprite t = it.next(); //Sprite was previously Tube
+            Sprite t = (Tube) it.next(); //Sprite was previously Tube
             if (tubeSprites.size() > 0)
             {
                 t.update();
@@ -54,12 +54,23 @@ class Model {
         // Iterates through fireballs
          for(Iterator<Sprite> fi = fireballSprites.iterator(); fi.hasNext();)
         {
-            Sprite f = fi.next();
+            Sprite f = (Fireball) fi.next();
             if (fireballSprites.size() > 0)
             {
                 f.update();
                 if (f.y + f.height > 400) f.vert_vel = f.bounce_vel;
                 else f.vert_vel = f.gravity;
+                if (goombaSprites.size() > 0)
+                {
+                    for(Iterator<Sprite> gi = goombaSprites.iterator(); gi.hasNext(); )
+                    {
+                        Sprite g = (Goomba) gi.next();
+                        if (g.hitsGoomba(f))
+                        {
+                            System.out.println("Success");
+                        }
+                    }            
+                }
             }
         }
     }

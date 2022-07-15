@@ -26,8 +26,8 @@ abstract class Sprite {
             return false;
         if(y <= fire.y ) // assumes bigger is downward
             return false;
-        if(y >= fire.y + fire.height) // assumes bigger is downward
-            return false;
+        // if(y >= fire.y + fire.height) // assumes bigger is downward
+        //     return false;
         else return true;
     }
     abstract void update();

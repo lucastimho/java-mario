@@ -153,7 +153,8 @@ class Controller implements MouseListener, KeyListener, SwingConstants
 					Sprite f = (Fireball) model.fireballSprites.get(ii);
 					if (g.hitsGoomba(f))
 					{
-						g.onFire = true;
+						// g.onFire = true;
+						System.out.println("Success");
 					}
 				}
 			}
