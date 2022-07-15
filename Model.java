@@ -67,7 +67,8 @@ class Model {
                         Sprite g = (Goomba) gi.next();
                         if (f.hitsGoomba(g))
                         {
-                            System.out.println("Success");
+                            g.onFire = true;
+                            System.out.println(g.onFire);
                         }
                     }            
                 }
