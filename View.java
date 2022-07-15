@@ -61,12 +61,13 @@ class View extends JPanel
 			for(int i = 0; i < model.goombaSprites.size(); i++)
 			{
 				Sprite goom = (Goomba) model.goombaSprites.get(i);
-				if (goom.onFire) 
-				{
-					g.drawImage(goombaFire, goom.x - model.mario.x + 200, 400 - goom.height, null);
-					
-				}
+				if (goom.onFire) g.drawImage(goombaFire, goom.x - model.mario.x + 200, 400 - goom.height, null);
 				else g.drawImage(goomba, goom.x - model.mario.x + 200, 400 - goom.height, null);
+			}
+			for (int i = 0; i < model.goombaSprites.size(); i++)
+			{
+				Sprite goom = (Goomba) model.goombaSprites.get(i);
+				if (goom.onFire) model.goombaSprites.remove(i);
 			}
 			// Mario image
 			g.drawImage(marios[model.mario.frame], 200, model.mario.y - 95, null);
