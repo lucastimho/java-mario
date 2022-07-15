@@ -18,13 +18,13 @@ abstract class Sprite {
             return false;
         else return true;
     }
-    boolean hitsGoomba(Sprite fire) //Sprite was previously Tube
+    boolean hitsGoomba(Sprite goomba) //Sprite was previously Tube
     {
-        if(x + width <= fire.x)
+        if(x + width <= goomba.x)
             return false;
-        if(x >= fire.x + fire.width)
+        if(x >= goomba.x + goomba.width)
             return false;
-        if(y <= fire.y ) // assumes bigger is downward
+        if(y <= goomba.y ) // assumes bigger is downward
             return false;
         // if(y >= fire.y + fire.height) // assumes bigger is downward
         //     return false;

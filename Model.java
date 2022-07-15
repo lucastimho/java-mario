@@ -65,7 +65,7 @@ class Model {
                     for(Iterator<Sprite> gi = goombaSprites.iterator(); gi.hasNext(); )
                     {
                         Sprite g = (Goomba) gi.next();
-                        if (g.hitsGoomba(f))
+                        if (f.hitsGoomba(g))
                         {
                             System.out.println("Success");
                         }
