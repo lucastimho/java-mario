@@ -71,11 +71,11 @@ class View extends JPanel
 			}
 			// Mario image
 			g.drawImage(marios[model.mario.frame], 200, model.mario.y - 95, null);
-			// Fireball Iterator
+			// Fireball Image Iterator
 			for(int i = 0; i < model.fireballSprites.size(); i++)
 			{
 				Sprite fire = (Fireball) model.fireballSprites.get(i);
-				g.drawImage(fireball, fire.x, fire.y, null);
+				g.drawImage(fireball, fire.x - model.mario.x + 200, fire.y, null);
 			}
 		}
 		catch(Exception e)

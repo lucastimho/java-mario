@@ -5,7 +5,7 @@ public class Mario extends Sprite {
     Mario()
     {
         x = 200;
-        y= 400;
+        y = 400;
         width = 60;
         height = 95;
         vert_vel = 1.2;
@@ -18,7 +18,7 @@ public class Mario extends Sprite {
         y += vert_vel;
         if(y > 400)
         {
-            // vert_vel = -18;
+            // vert_vel = 0;
             y = 400;
             offGrounCount = 0;
         }
@@ -42,6 +42,6 @@ public class Mario extends Sprite {
     }
     void jump() 
     {
-        y += bounce_vel;
+        vert_vel += bounce_vel;
     }
 }
